@@ -15,8 +15,21 @@ The purpose is station identification under 47 CFR §97.119.
 
 ## Installation
 
-Copy `M73CallsignInterface.py` into `~/.reticulum/interfaces/`. The filename must be exactly
-`M73CallsignInterface.py`, because Reticulum derives the file to load from the `type` value.
+Copy and paste this into a terminal:
+
+```bash
+mkdir -p ~/.reticulum/interfaces && \
+git clone https://github.com/smeshT/M73CallsignInterface.py.git /tmp/m73csi && \
+cp /tmp/m73csi/M73CallsignInterface.py ~/.reticulum/interfaces/ && \
+rm -rf /tmp/m73csi && \
+ls -l ~/.reticulum/interfaces/M73CallsignInterface.py
+```
+
+To update later, run the same block again. It overwrites the file and prints the result.
+
+The filename must be exactly `M73CallsignInterface.py`, because Reticulum derives the file to load
+from the `type` value. If the last line does not appear, the copy failed and Reticulum will start
+without the interface — silently.
 
 This file subclasses the stock `Modem73Interface`. Leave that file where it is; the import fails
 without it.
