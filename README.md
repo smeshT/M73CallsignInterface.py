@@ -52,7 +52,6 @@ For the operating mode, the registry, and the ratchet requirement, see **M73_RNS
     mode = internal
     kiss_framing = true
     recursive_prs = no
-    path_discovery = passive
     announces_from_internal = yes
     announces_to_internal = yes
 ```
@@ -61,20 +60,8 @@ For the operating mode, the registry, and the ratchet requirement, see **M73_RNS
 - `envelope` — `true` wraps frames. `false` behaves like the stock interface.
 - `strict` — defaults to `true`. Logs a warning when a frame arrives without an envelope.
 - `operator_log` — optional path for the per-frame station log.
-- `path_discovery` — `discover` (default) or `passive`.
 - `recursive_prs` — stock Reticulum key, inherited from the base interface.
 
-### path_discovery
-
-`recursive_prs = no` only stops path requests that *start* on this interface. It does not stop the one
-Transport generates on its behalf: when a local client asks for an unknown destination, Transport
-searches on every other online interface, HF included.
-
-`path_discovery = passive` drops those discovery sweeps at the modem boundary. Requests for a
-destination already in the local path table still go out, because those are direct answers to a peer.
-
-Leave `recursive_prs = no` in place. The two keys cover opposite directions — one governs inbound,
-one governs outbound — and neither replaces the other.
 
 ## Log
 
