@@ -18,10 +18,10 @@ The purpose is station identification under 47 CFR §97.119.
 Copy and paste this into a terminal:
 
 ```bash
-mkdir -p ~/.reticulum/interfaces && \
-git clone https://github.com/smeshT/M73CallsignInterface.py.git /tmp/m73csi && \
-cp /tmp/m73csi/M73CallsignInterface.py ~/.reticulum/interfaces/ && \
-rm -rf /tmp/m73csi && \
+tmpdir=$(mktemp -d) && \
+git clone https://github.com/smeshT/M73CallsignInterface.py.git "$tmpdir/src" && \
+cp "$tmpdir/src/M73CallsignInterface.py" ~/.reticulum/interfaces/ && \
+rm -rf "$tmpdir" && \
 ls -l ~/.reticulum/interfaces/M73CallsignInterface.py
 ```
 
